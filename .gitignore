@@ -1,2 +1,4 @@
 venv3/
-./**/*.gpg
+master/**/*.gpg
+microsoft.gpg
+packages.microsoft.gpg
