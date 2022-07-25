@@ -1,4 +1,3 @@
 venv3/
-master/**/*.gpg
-microsoft.gpg
-packages.microsoft.gpg
+*.gpg
+
