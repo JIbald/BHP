@@ -6,6 +6,16 @@ import sys
 import textwrap
 import threading
 
+def execute(cmd):
+    cmd = cmd.strip()
+    if not cmd:
+        print('!cmd')
+        return
+    
+    output = subprocess.check_output(shlex.split(cmd),
+                                    stderr = subprocess.STDOUT)
+    return output.decode
+
 class NetCat:
     def __init__(self, args, buffer=None):
         self.args = args
@@ -91,16 +101,6 @@ class NetCat:
                     print(f'server killed {e}')
                     self.socket.close()
                     sys.exit()
-
-def execute(cmd):
-    cmd = cmd.strip()
-    if not cmd:
-        print('!cmd')
-        return
-    
-    output = subprocess.check_output(shlex.split(cmd),
-                                    stderr = subprocess.STDOUT)
-    return output.decode
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
